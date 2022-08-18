@@ -1,0 +1,25 @@
+{ "shopping":
+    {"products": [
+      { "code": "Dunnes Bread",
+        "price": 1.0,
+        "currency": "EUR",
+        "created_at": "18-08-2022"
+      },
+      { "code": "Dunnes Chocolate",
+        "price": 2.50,
+        "currency": "EUR",
+        "created_at": "18-08-2022"
+      },
+      { "code": "HEINZ TOMATO",
+        "price": 3.582,
+        "currency": "EUR",
+        "created_at": "18-08-2022"
+      },
+      { "code": "Irish Spring Water",
+        "price": 4.45,
+        "currency": "EUR",
+        "created_at": "18-08-2022"
+      }
+    ]
+  }
+}
