@@ -14,10 +14,8 @@ class Database():
         """
         if self.conn:
             self.conn.close()
-
         try:
             self.conn = sqlite3.connect(db_file)
-
         except Exception as e:
             logging.error("Error : Cannot Connect to DB" + str(e))
 
@@ -42,9 +40,7 @@ class Database():
             cur = self.conn.cursor()
             cur.execute(sql, product)
         except Exception as e:
-            # db.close_connection()
             logging.error("Could not insert the record. Error: " + str(e))
-
         return cur.lastrowid
 
     def get_all_products(self):
@@ -55,7 +51,6 @@ class Database():
         cur = self.conn.cursor()
         cur.execute("SELECT code, price, currency, created_at FROM products")
         rows = cur.fetchall()
-
         return rows
 
     def commit(self):
@@ -66,7 +61,6 @@ class Database():
         try:
             if self.conn:
                 self.conn.commit()
-
         except Exception as e:
             logging.error("Can not Commit" + str(e))
 
@@ -75,5 +69,9 @@ class Database():
         :param 
         :return: 
         """
-        if self.conn:
-            self.conn.close()
+        try:
+            if self.conn:
+                self.conn.close()
+        except Exception as e:
+            logging.error("Can not Commit" + str(e))
+
