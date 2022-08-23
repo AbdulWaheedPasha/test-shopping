@@ -29,9 +29,22 @@ Please budget 3 hours to complete, and your code should be production ready, cle
 - Fixed typos in test_cart.py
 - Added exception handling in connection.py 
 - Rename variables for better readability
-- Removed import wherever not required
-- Removed OrderedDict() 
+- added comments wherever required 
 
 ### Removed
 
-- Some packages/libraries from acknowledgements I no longer use
+- Removed OrderedDict() 
+- Removed import wherever not required
+
+### Installation
+
+1. Download Pycharm [https://www.jetbrains.com/pycharm/](https://www.jetbrains.com/pycharm/)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/AbdulWaheedPasha/test-shopping
+   ```
+
+3. open `test-shopping` in pycharm and Run `populate_db.py`
+
+4. Run `tests/test_cart.py` from pycharm
+
