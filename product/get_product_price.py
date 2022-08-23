@@ -27,6 +27,7 @@ class ProductPriceSQL(ProductPrice):
             db = Database()
             db.create_connection(self._db_file)
             rows = db.get_all_products()
+            db.commit()
             db.close_connection()
 
             for code, price, currency, created_at in rows:

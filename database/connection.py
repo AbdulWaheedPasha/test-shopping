@@ -12,13 +12,14 @@ class Database():
         :param db_file: database file name
         :return: Connection object or None
         """
-        self.conn = None
+        if self.conn:
+            self.conn.close()
 
         try:
             self.conn = sqlite3.connect(db_file)
 
         except Exception as e:
-            logging.error("Error : Cannot Connect to DB" + e)
+            logging.error("Error : Cannot Connect to DB" + str(e))
 
     def create_product_table(self, create_table_sql: str):
         """ Create product table in database
@@ -29,17 +30,21 @@ class Database():
             c = self.conn.cursor()
             c.execute(create_table_sql)
         except Exception as e:
-            logging.error("Error : Cannot Create Table " + e)
+            logging.error("Error : Cannot Create Table " + str(e))
 
-
-    def insert_product(self,product):
+    def insert_product(self, product):
         """ insert record in product table
         :param : product details
         :return: last record added
         """
-        sql = ''' INSERT INTO products(code,price,currency,created_at) VALUES(?,?,?,?) '''
-        cur = self.conn.cursor()
-        cur.execute(sql, product)
+        try:
+            sql = ''' INSERT INTO products(code,price,currency,created_at) VALUES(?,?,?,?) '''
+            cur = self.conn.cursor()
+            cur.execute(sql, product)
+        except Exception as e:
+            # db.close_connection()
+            logging.error("Could not insert the record. Error: " + str(e))
+
         return cur.lastrowid
 
     def get_all_products(self):
@@ -53,11 +58,22 @@ class Database():
 
         return rows
 
+    def commit(self):
+        """ Commit SQLite database
+        :param 
+        :return: 
+        """
+        try:
+            if self.conn:
+                self.conn.commit()
+
+        except Exception as e:
+            logging.error("Can not Commit" + str(e))
+
     def close_connection(self):
-        """ save and close the connection
-        :param
-        :return:
+        """ Closing a SQLite database connection
+        :param 
+        :return: 
         """
         if self.conn:
-            self.conn.commit()
             self.conn.close()
