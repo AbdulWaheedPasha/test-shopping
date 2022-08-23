@@ -26,11 +26,10 @@ def test_add_different_items(scan: ProductPrice):
     return receipt
 
 def test_item_with_neg_quantity(scan: ProductPrice):
-        cart = ShoppingCart(scan)
-        cart.add_item("Dunnes Bread", -1)
-        receipt = cart.print_receipt()
-        print(receipt)
-        return receipt
+    cart = ShoppingCart(scan)
+    cart.add_item("Dunnes Bread", -1)
+    receipt = cart.print_receipt()
+    return receipt
 
 class TestBill(TestCase):
 
