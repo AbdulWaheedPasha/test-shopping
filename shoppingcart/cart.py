@@ -9,8 +9,7 @@ logging.basicConfig(filename="../server.log", level=logging.DEBUG, format="%(asc
 
 class ShoppingCart(abc.ShoppingCart):
     def __init__(self, reader: ProductPrice):
-        # self._items = dict()
-        self._items = OrderedDict()
+        self._items = dict()
         self._db_products = reader.get_products()
 
     def add_item(self, product_code: str, quantity: int):
@@ -40,7 +39,7 @@ class ShoppingCart(abc.ShoppingCart):
         total_usd_price = 0.0
         for product_code, quantity in self._items.items():
             # Round price to only two decimals
-            price = round(self._db_products[product_code]._price * quantity, 2)
+            price = round(self._db_products[product_code].price * quantity, 2)
             usd_price = c.convert(price, 'EUR', 'USD')
 
             total_price += price
