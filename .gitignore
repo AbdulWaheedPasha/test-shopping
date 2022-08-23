@@ -1,7 +1,12 @@
-venv
-server.log
+#hidden system files
+.idea
 .DS_Store
 
+#python files
 __pycache__
 
-.idea
+#Environment files
+venv
+
+# ignore all logs
+*.log
