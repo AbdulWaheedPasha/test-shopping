@@ -15,7 +15,7 @@ class ShoppingCart(abc.ShoppingCart):
 
     def add_item(self, product_code: str, quantity: int):
         # check quantity if it is 1 or more
-        if quantity >= 1:
+        if quantity > 0:
             # Check item in cart if not exist then set quantity
             if product_code not in self._items and product_code in self._db_products:
                 self._items[product_code] = quantity
