@@ -18,3 +18,20 @@ If you do not have enough information, make any assumptions you would like and n
 Please budget 3 hours to complete, and your code should be production ready, clean and tested! Please ensure the code is version controlled also, and make sure to make several commits with sensile commit messages while working on this. When submitting please either:
 - Provide a Github/GitLab/etc. link that we can view and clone your work; or
 - Use git-bundle (https://git-scm.com/docs/git-bundle) to create a bundle file and send this to us.
+
+# Changelog
+
+## v2.0.0
+
+### Added or Changed
+- Added timestamp to product table
+- Fixed typos in cart.py
+- Fixed typos in test_cart.py
+- Added exception handling in connection.py 
+- Rename variables for better readability
+- Removed import wherever not required
+- Removed OrderedDict() 
+
+### Removed
+
+- Some packages/libraries from acknowledgements I no longer use
