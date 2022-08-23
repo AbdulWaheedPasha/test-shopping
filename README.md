@@ -44,7 +44,7 @@ Please budget 3 hours to complete, and your code should be production ready, cle
    git clone https://github.com/AbdulWaheedPasha/test-shopping
    ```
 
-3. open `test-shopping` in pycharm and run `database/populate_db.py`
+3. open `test-shopping` in pycharm and run `database/populate_db.py` inorder to insert records in database
 
-4. Run `tests/test_cart.py` in pycharm
+4. Run `tests/test_cart.py` in pycharm to test the project
 
