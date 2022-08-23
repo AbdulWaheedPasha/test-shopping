@@ -40,7 +40,7 @@ class ShoppingCart(abc.ShoppingCart):
         total_usd_price = 0.0
         for product_code, quantity in self._items.items():
             # Round price to only two decimals
-            price = round(self._db_products[product_code].get_price() * quantity, 2)
+            price = round(self._db_products[product_code]._price * quantity, 2)
             usd_price = c.convert(price, 'EUR', 'USD')
 
             total_price += price
