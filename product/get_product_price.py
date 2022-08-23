@@ -29,11 +29,10 @@ class ProductPriceSQL(ProductPrice):
             rows = db.get_all_products()
             db.close_connection()
 
-            for row in rows:
-                if row[0] not in products:
+            for code, price, currency, created_at in rows:
+                if code not in products:
                     try:
-                                                 # code, price, currency, created_at
-                        products[row[0]] = Product(row[0], row[1], row[2], row[3])
+                        products[code] = Product(code, price, currency, created_at)
                     except Exception as e:
                         # If any error found then it will be logged
                         logging.error(e)
